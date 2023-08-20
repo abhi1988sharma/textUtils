@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import About from './components/About';
 import './App.css';
 import Alert from './components/Alert';
@@ -34,14 +34,15 @@ function App() {
 
   return (
     <><Router>
-      <Navbar title="TextUtils" aboutText="About textUtils" mode={mode} toggleMode={toggleMode} />
+      <Navbar title="TextUtils" aboutText="About textUtils" mode={mode} toggleMode={toggleMode} exact path="/" />
       <Alert alert={alert} />
+     
 
       <div className='container my-3'>
         
           <Routes>
+             <Route exact path="/" element={<TextForm showAlert={showAlert} heading="Try TextUtils - Word counter, Character counter, Lower case to upper case, upper case to lower case, remove extra spaces" mode={mode} />} />
             <Route exact path='/about' element={<About mode={mode}/>} />
-            <Route exact path="/" element={<TextForm showAlert={showAlert} heading="Try TextUtils - Word counter, Character counter, Lower case to upper case, upper case to lower case, remove extra spaces" mode={mode} />} />
           </Routes>
         
       </div>
